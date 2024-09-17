@@ -1,0 +1,1220 @@
+[
+  {
+    "role": "countyadmin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "User",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "User",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "User",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "User",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "User",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "County",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "County",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "County",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "County",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "County",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "County",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "County",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "County",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "County",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "County",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "County",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "County",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "County",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "County",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "County",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "County",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "County",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "County",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "County",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "County",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "County",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "County",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Vendor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Vendor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Vendor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Vendor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Vendor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Vendor",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Vendor",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Vendor",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Vendor",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Vendor",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Vendor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Vendor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Vendor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Vendor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Vendor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Vendor",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Vendor",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Vendor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Vendor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Vendor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Vendor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Vendor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Vendor",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Expense",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Expense",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Expense",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Expense",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Expense",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Expense",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Expense",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Expense",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Expense",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Expense",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Expense",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Expense",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Expense",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Expense",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Expense",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Expense",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Expense",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Expense",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Expense",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Expense",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Expense",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Certification",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Certification",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Certification",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Certification",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Certification",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Certification",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Certification",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Certification",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Certification",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Certification",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Certification",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Certification",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Certification",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Certification",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Certification",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Certification",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Certification",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Certification",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Certification",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Component",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Component",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Component",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Component",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Component",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Component",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Component",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Component",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Component",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Component",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Component",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Component",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Component",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Component",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Component",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Component",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Component",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Component",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Component",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Component",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Component",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Component",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Contract",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Contract",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Contract",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Contract",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Contract",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Contract",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Contract",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Contract",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Contract",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Contract",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Contract",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Contract",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Contract",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Contract",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Contract",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Disposition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Disposition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Disposition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Disposition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Disposition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Disposition",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Disposition",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Disposition",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Disposition",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "Disposition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "Disposition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "Disposition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "Disposition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "Disposition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "Disposition",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "StorageLocation",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "StorageLocation",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "StorageLocation",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "StorageLocation",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "StorageLocation",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "StorageLocation",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "StorageLocation",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "StorageLocation",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "StorageLocation",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "StorageLocation",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "StorageLocation",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "StorageLocation",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "StorageLocation",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "StorageLocation",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "StorageLocation",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "StorageLocation",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "StorageLocation",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "StorageLocation",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "StorageLocation",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "StorageLocation",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "StorageLocation",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "InventoryUnit",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "InventoryUnit",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "InventoryUnit",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "InventoryUnit",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "InventoryUnit",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "InventoryUnit",
+    "action": "read:own",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "InventoryUnit",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "InventoryUnit",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "InventoryUnit",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "InventoryUnit",
+    "action": "create:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "InventoryUnit",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "InventoryUnit",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "InventoryUnit",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "InventoryUnit",
+    "action": "update:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "InventoryUnit",
+    "action": "delete:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyadmin",
+    "resource": "InventoryUnit",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "countyuser",
+    "resource": "InventoryUnit",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateAdmin",
+    "resource": "InventoryUnit",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "stateUser",
+    "resource": "InventoryUnit",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopAdmin",
+    "resource": "InventoryUnit",
+    "action": "read:any",
+    "attributes": "*"
+  },
+  {
+    "role": "vstopUser",
+    "resource": "InventoryUnit",
+    "action": "read:any",
+    "attributes": "*"
+  }
+]
