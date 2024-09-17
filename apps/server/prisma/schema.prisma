@@ -1,0 +1,232 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  county          County?   @relation(fields: [countyId], references: [id])
+  countyId        String?
+  createdAt       DateTime  @default(now())
+  email           String    @unique
+  firstName       String
+  id              String    @id @default(cuid())
+  lastLogin       DateTime?
+  lastLogout      DateTime?
+  lastName        String
+  organization    String
+  password        String
+  phone           String?
+  roles           Json
+  supervisorEmail String
+  supervisorName  String
+  updatedAt       DateTime  @updatedAt
+  username        String    @unique
+}
+
+model County {
+  createdAt DateTime  @default(now())
+  expenses  Expense[]
+  id        String    @id @default(cuid())
+  name      String
+  updatedAt DateTime  @updatedAt
+  users     User[]
+}
+
+model Vendor {
+  address          String?
+  certifications   Certification[]
+  city             String?
+  contactEmail     String?
+  contactFirstName String?
+  contactLastName  String?
+  contactPhone     String?
+  createdAt        DateTime            @default(now())
+  expenses         Expense[]
+  id               String              @id @default(cuid())
+  name             String
+  notes            String?
+  product          EnumVendorProduct[]
+  state            String?
+  updatedAt        DateTime            @updatedAt
+  zip              String?
+}
+
+model Expense {
+  amount         Decimal
+  contract       Contract?
+  county         County?         @relation(fields: [countyId], references: [id])
+  countyId       String?
+  createdAt      DateTime        @default(now())
+  fund           String
+  id             String          @id @default(cuid())
+  inventoryUnits InventoryUnit[]
+  name           String
+  notes          String?
+  owner          String
+  updatedAt      DateTime        @updatedAt
+  vendor         Vendor?         @relation(fields: [vendorId], references: [id])
+  vendorId       String?
+}
+
+model Certification {
+  action            EnumCertificationAction
+  applicationDate   DateTime
+  certificationDate DateTime
+  components        Component[]
+  contracts         Contract[]
+  createdAt         DateTime                    @default(now())
+  description       String
+  expirationDate    DateTime
+  federalCertDate   DateTime?
+  federalCertNumber String?
+  id                String                      @id @default(cuid())
+  modelNumber       String
+  notes             String?
+  systemType        EnumCertificationSystemType
+  typeField         EnumCertificationTypeField
+  updatedAt         DateTime                    @updatedAt
+  vendor            Vendor?                     @relation(fields: [vendorId], references: [id])
+  vendorId          String?
+}
+
+model Component {
+  certification   Certification?         @relation(fields: [certificationId], references: [id])
+  certificationId String?
+  createdAt       DateTime               @default(now())
+  description     String
+  id              String                 @id @default(cuid())
+  inventoryUnits  InventoryUnit[]
+  name            String
+  typeField       EnumComponentTypeField
+  updatedAt       DateTime               @updatedAt
+}
+
+model Contract {
+  certification   Certification?        @relation(fields: [certificationId], references: [id])
+  certificationId String?
+  createdAt       DateTime              @default(now())
+  endDate         DateTime
+  expense         Expense?              @relation(fields: [expenseId], references: [id])
+  expenseId       String?               @unique
+  id              String                @id @default(cuid())
+  notes           String?
+  startDate       DateTime
+  typeField       EnumContractTypeField
+  updatedAt       DateTime              @updatedAt
+}
+
+model Disposition {
+  amount         Decimal?
+  createdAt      DateTime        @default(now())
+  date           DateTime
+  entity         String
+  id             String          @id @default(cuid())
+  inventoryUnits InventoryUnit[]
+  method         String
+  notes          String?
+  updatedAt      DateTime        @updatedAt
+}
+
+model StorageLocation {
+  address        String
+  city           String
+  createdAt      DateTime        @default(now())
+  id             String          @id @default(cuid())
+  inventoryUnits InventoryUnit[]
+  name           String
+  notes          String?
+  state          String
+  updatedAt      DateTime        @updatedAt
+  zip            String
+}
+
+model InventoryUnit {
+  acquisitionDate   DateTime
+  component         Component?                 @relation(fields: [componentId], references: [id])
+  componentId       String?
+  condition         EnumInventoryUnitCondition
+  createdAt         DateTime                   @default(now())
+  disposition       Disposition?               @relation(fields: [dispositionId], references: [id])
+  dispositionId     String?
+  expense           Expense?                   @relation(fields: [expenseId], references: [id])
+  expenseId         String?
+  id                String                     @id @default(cuid())
+  notes             String?
+  serialNumber      String
+  storageLocation   StorageLocation?           @relation(fields: [storageLocationId], references: [id])
+  storageLocationId String?
+  updatedAt         DateTime                   @updatedAt
+  use               EnumInventoryUnitUse
+}
+
+enum EnumVendorProduct {
+  Epb
+  Vs
+  Service
+  Other
+}
+
+enum EnumCertificationAction {
+  Approved
+  Pending
+  Denied
+  Other
+}
+
+enum EnumCertificationSystemType {
+  Dre
+  OpScan
+  DreOpscan
+  PcLaptopBased
+  TabletBased
+  CustomHardwareBased
+  Other
+}
+
+enum EnumCertificationTypeField {
+  Certification
+  Reevaluation
+  Renewal
+  Recertification
+  Other
+}
+
+enum EnumComponentTypeField {
+  Dre
+  OpScan
+  Bmd
+  Vvpat
+  Cots
+  Other
+  Hardware
+  Software
+  Peripheral
+}
+
+enum EnumContractTypeField {
+  Purchase
+  Lease
+  Service
+  Other
+}
+
+enum EnumInventoryUnitCondition {
+  New
+  Excellent
+  Good
+  Worn
+  Damaged
+  Unusable
+}
+
+enum EnumInventoryUnitUse {
+  Active
+  Spare
+  Display
+  Other
+  Inactive
+}
