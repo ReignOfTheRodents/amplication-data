@@ -8,8 +8,7 @@ generator client {
 }
 
 model User {
-  county          County?   @relation(fields: [countyId], references: [id])
-  countyId        String?
+  counties        County[]
   createdAt       DateTime  @default(now())
   email           String    @unique
   firstName       String
@@ -57,7 +56,8 @@ model Vendor {
 
 model Expense {
   amount         Decimal
-  contract       Contract?
+  contract       Contract?       @relation(fields: [contractId], references: [id])
+  contractId     String?
   county         County?         @relation(fields: [countyId], references: [id])
   countyId       String?
   createdAt      DateTime        @default(now())
@@ -110,8 +110,7 @@ model Contract {
   certificationId String?
   createdAt       DateTime              @default(now())
   endDate         DateTime
-  expense         Expense?              @relation(fields: [expenseId], references: [id])
-  expenseId       String?               @unique
+  expenses        Expense[]
   id              String                @id @default(cuid())
   notes           String?
   startDate       DateTime

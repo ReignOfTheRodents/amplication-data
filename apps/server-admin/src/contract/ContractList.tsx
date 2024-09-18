@@ -9,7 +9,6 @@ import {
 } from "react-admin";
 import Pagination from "../Components/Pagination";
 import { CERTIFICATION_TITLE_FIELD } from "../certification/CertificationTitle";
-import { EXPENSE_TITLE_FIELD } from "../expense/ExpenseTitle";
 
 export const ContractList = (props: ListProps): React.ReactElement => {
   return (
@@ -29,9 +28,6 @@ export const ContractList = (props: ListProps): React.ReactElement => {
         </ReferenceField>
         <DateField source="createdAt" label="Created At" />
         <TextField label="EndDate" source="endDate" />
-        <ReferenceField label="Expense" source="expense.id" reference="Expense">
-          <TextField source={EXPENSE_TITLE_FIELD} />
-        </ReferenceField>
         <TextField label="ID" source="id" />
         <TextField label="Notes" source="notes" />
         <TextField label="StartDate" source="startDate" />

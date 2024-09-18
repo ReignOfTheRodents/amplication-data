@@ -21,7 +21,7 @@ import {
   IsEnum,
 } from "class-validator";
 import { Type } from "class-transformer";
-import { ExpenseWhereUniqueInput } from "../../expense/base/ExpenseWhereUniqueInput";
+import { ExpenseCreateNestedManyWithoutContractsInput } from "./ExpenseCreateNestedManyWithoutContractsInput";
 import { EnumContractTypeField } from "./EnumContractTypeField";
 
 @InputType()
@@ -48,15 +48,15 @@ class ContractCreateInput {
 
   @ApiProperty({
     required: false,
-    type: () => ExpenseWhereUniqueInput,
+    type: () => ExpenseCreateNestedManyWithoutContractsInput,
   })
   @ValidateNested()
-  @Type(() => ExpenseWhereUniqueInput)
+  @Type(() => ExpenseCreateNestedManyWithoutContractsInput)
   @IsOptional()
-  @Field(() => ExpenseWhereUniqueInput, {
+  @Field(() => ExpenseCreateNestedManyWithoutContractsInput, {
     nullable: true,
   })
-  expense?: ExpenseWhereUniqueInput | null;
+  expenses?: ExpenseCreateNestedManyWithoutContractsInput;
 
   @ApiProperty({
     required: false,

@@ -1,8 +1,8 @@
-import { CountyWhereUniqueInput } from "../county/CountyWhereUniqueInput";
+import { CountyUpdateManyWithoutUsersInput } from "./CountyUpdateManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 
 export type UserUpdateInput = {
-  county?: CountyWhereUniqueInput | null;
+  counties?: CountyUpdateManyWithoutUsersInput;
   email?: string;
   firstName?: string;
   lastLogin?: Date | null;

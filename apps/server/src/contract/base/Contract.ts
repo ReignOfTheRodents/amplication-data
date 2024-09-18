@@ -53,12 +53,12 @@ class Contract {
 
   @ApiProperty({
     required: false,
-    type: () => Expense,
+    type: () => [Expense],
   })
   @ValidateNested()
   @Type(() => Expense)
   @IsOptional()
-  expense?: Expense | null;
+  expenses?: Array<Expense>;
 
   @ApiProperty({
     required: true,

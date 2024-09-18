@@ -1,8 +1,8 @@
-import { CountyWhereUniqueInput } from "../county/CountyWhereUniqueInput";
+import { CountyCreateNestedManyWithoutUsersInput } from "./CountyCreateNestedManyWithoutUsersInput";
 import { InputJsonValue } from "../../types";
 
 export type UserCreateInput = {
-  county?: CountyWhereUniqueInput | null;
+  counties?: CountyCreateNestedManyWithoutUsersInput;
   email: string;
   firstName: string;
   lastLogin?: Date | null;
