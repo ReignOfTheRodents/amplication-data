@@ -19,14 +19,7 @@ export type CertificationWhereInput = {
   id?: StringFilter;
   modelNumber?: StringFilter;
   notes?: StringNullableFilter;
-  systemType?:
-    | "Dre"
-    | "OpScan"
-    | "DreOpscan"
-    | "PcLaptopBased"
-    | "TabletBased"
-    | "CustomHardwareBased"
-    | "Other";
+  systemType?: "Vs" | "Epb";
   typeField?:
     | "Certification"
     | "Reevaluation"

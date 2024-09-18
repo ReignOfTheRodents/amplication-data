@@ -11,11 +11,15 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { registerEnumType } from "@nestjs/graphql";
 
-export enum EnumCertificationSystemType {
-  Vs = "Vs",
-  Epb = "Epb",
+export enum EnumCertificationSystemSubType {
+  Dre = "Dre",
+  OpScan = "OpScan",
+  PcLaptopBased = "PcLaptopBased",
+  TabletBased = "TabletBased",
+  CustomHardwareBased = "CustomHardwareBased",
+  Other = "Other",
 }
 
-registerEnumType(EnumCertificationSystemType, {
-  name: "EnumCertificationSystemType",
+registerEnumType(EnumCertificationSystemSubType, {
+  name: "EnumCertificationSystemSubType",
 });

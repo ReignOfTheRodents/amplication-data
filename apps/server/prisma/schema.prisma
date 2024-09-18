@@ -78,18 +78,19 @@ model Certification {
   certificationDate DateTime
   components        Component[]
   contracts         Contract[]
-  createdAt         DateTime                    @default(now())
+  createdAt         DateTime                         @default(now())
   description       String
   expirationDate    DateTime
   federalCertDate   DateTime?
   federalCertNumber String?
-  id                String                      @id @default(cuid())
+  id                String                           @id @default(cuid())
   modelNumber       String
   notes             String?
+  systemSubType     EnumCertificationSystemSubType[]
   systemType        EnumCertificationSystemType
   typeField         EnumCertificationTypeField
-  updatedAt         DateTime                    @updatedAt
-  vendor            Vendor?                     @relation(fields: [vendorId], references: [id])
+  updatedAt         DateTime                         @updatedAt
+  vendor            Vendor?                          @relation(fields: [vendorId], references: [id])
   vendorId          String?
 }
 
@@ -176,14 +177,18 @@ enum EnumCertificationAction {
   Other
 }
 
-enum EnumCertificationSystemType {
+enum EnumCertificationSystemSubType {
   Dre
   OpScan
-  DreOpscan
   PcLaptopBased
   TabletBased
   CustomHardwareBased
   Other
+}
+
+enum EnumCertificationSystemType {
+  Vs
+  Epb
 }
 
 enum EnumCertificationTypeField {

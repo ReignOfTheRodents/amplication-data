@@ -23,6 +23,7 @@ import {
 import { Type } from "class-transformer";
 import { ComponentUpdateManyWithoutCertificationsInput } from "./ComponentUpdateManyWithoutCertificationsInput";
 import { ContractUpdateManyWithoutCertificationsInput } from "./ContractUpdateManyWithoutCertificationsInput";
+import { EnumCertificationSystemSubType } from "./EnumCertificationSystemSubType";
 import { EnumCertificationSystemType } from "./EnumCertificationSystemType";
 import { EnumCertificationTypeField } from "./EnumCertificationTypeField";
 import { VendorWhereUniqueInput } from "../../vendor/base/VendorWhereUniqueInput";
@@ -158,6 +159,27 @@ class CertificationUpdateInput {
 
   @ApiProperty({
     required: false,
+    enum: EnumCertificationSystemSubType,
+    isArray: true,
+  })
+  @IsEnum(EnumCertificationSystemSubType, {
+    each: true,
+  })
+  @IsOptional()
+  @Field(() => [EnumCertificationSystemSubType], {
+    nullable: true,
+  })
+  systemSubType?: Array<
+    | "Dre"
+    | "OpScan"
+    | "PcLaptopBased"
+    | "TabletBased"
+    | "CustomHardwareBased"
+    | "Other"
+  >;
+
+  @ApiProperty({
+    required: false,
     enum: EnumCertificationSystemType,
   })
   @IsEnum(EnumCertificationSystemType)
@@ -165,14 +187,7 @@ class CertificationUpdateInput {
   @Field(() => EnumCertificationSystemType, {
     nullable: true,
   })
-  systemType?:
-    | "Dre"
-    | "OpScan"
-    | "DreOpscan"
-    | "PcLaptopBased"
-    | "TabletBased"
-    | "CustomHardwareBased"
-    | "Other";
+  systemType?: "Vs" | "Epb";
 
   @ApiProperty({
     required: false,

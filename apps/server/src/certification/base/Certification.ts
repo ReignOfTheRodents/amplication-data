@@ -23,6 +23,7 @@ import {
 import { Type } from "class-transformer";
 import { Component } from "../../component/base/Component";
 import { Contract } from "../../contract/base/Contract";
+import { EnumCertificationSystemSubType } from "./EnumCertificationSystemSubType";
 import { EnumCertificationSystemType } from "./EnumCertificationSystemType";
 import { EnumCertificationTypeField } from "./EnumCertificationTypeField";
 import { Vendor } from "../../vendor/base/Vendor";
@@ -152,20 +153,34 @@ class Certification {
 
   @ApiProperty({
     required: true,
+    enum: EnumCertificationSystemSubType,
+    isArray: true,
+  })
+  @IsEnum(EnumCertificationSystemSubType, {
+    each: true,
+  })
+  @IsOptional()
+  @Field(() => [EnumCertificationSystemSubType], {
+    nullable: true,
+  })
+  systemSubType?: Array<
+    | "Dre"
+    | "OpScan"
+    | "PcLaptopBased"
+    | "TabletBased"
+    | "CustomHardwareBased"
+    | "Other"
+  >;
+
+  @ApiProperty({
+    required: true,
     enum: EnumCertificationSystemType,
   })
   @IsEnum(EnumCertificationSystemType)
   @Field(() => EnumCertificationSystemType, {
     nullable: true,
   })
-  systemType?:
-    | "Dre"
-    | "OpScan"
-    | "DreOpscan"
-    | "PcLaptopBased"
-    | "TabletBased"
-    | "CustomHardwareBased"
-    | "Other";
+  systemType?: "Vs" | "Epb";
 
   @ApiProperty({
     required: true,
