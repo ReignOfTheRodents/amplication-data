@@ -16,14 +16,15 @@ export type Certification = {
   id: string;
   modelNumber: string;
   notes: string | null;
-  systemType?:
+  systemSubType?: Array<
     | "Dre"
     | "OpScan"
-    | "DreOpscan"
     | "PcLaptopBased"
     | "TabletBased"
     | "CustomHardwareBased"
-    | "Other";
+    | "Other"
+  >;
+  systemType?: "Vs" | "Epb";
   typeField?:
     | "Certification"
     | "Reevaluation"

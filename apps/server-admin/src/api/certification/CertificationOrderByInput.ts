@@ -12,6 +12,7 @@ export type CertificationOrderByInput = {
   id?: SortOrder;
   modelNumber?: SortOrder;
   notes?: SortOrder;
+  systemSubType?: SortOrder;
   systemType?: SortOrder;
   typeField?: SortOrder;
   updatedAt?: SortOrder;

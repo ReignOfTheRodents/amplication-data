@@ -50,6 +50,7 @@ export const VendorShow = (props: ShowProps): React.ReactElement => {
             <TextField label="ID" source="id" />
             <TextField label="ModelNumber" source="modelNumber" />
             <TextField label="Notes" source="notes" />
+            <TextField label="SystemSubType" source="systemSubType" />
             <TextField label="SystemType" source="systemType" />
             <TextField label="Type" source="typeField" />
             <DateField source="updatedAt" label="Updated At" />

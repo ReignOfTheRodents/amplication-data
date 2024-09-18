@@ -268,6 +268,7 @@ export class VendorControllerBase {
         id: true,
         modelNumber: true,
         notes: true,
+        systemSubType: true,
         systemType: true,
         typeField: true,
         updatedAt: true,

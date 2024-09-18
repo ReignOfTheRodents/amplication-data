@@ -23,6 +23,7 @@ import {
 import { Type } from "class-transformer";
 import { ComponentCreateNestedManyWithoutCertificationsInput } from "./ComponentCreateNestedManyWithoutCertificationsInput";
 import { ContractCreateNestedManyWithoutCertificationsInput } from "./ContractCreateNestedManyWithoutCertificationsInput";
+import { EnumCertificationSystemSubType } from "./EnumCertificationSystemSubType";
 import { EnumCertificationSystemType } from "./EnumCertificationSystemType";
 import { EnumCertificationTypeField } from "./EnumCertificationTypeField";
 import { VendorWhereUniqueInput } from "../../vendor/base/VendorWhereUniqueInput";
@@ -140,18 +141,32 @@ class CertificationCreateInput {
 
   @ApiProperty({
     required: true,
+    enum: EnumCertificationSystemSubType,
+    isArray: true,
+  })
+  @IsEnum(EnumCertificationSystemSubType, {
+    each: true,
+  })
+  @IsOptional()
+  @Field(() => [EnumCertificationSystemSubType], {
+    nullable: true,
+  })
+  systemSubType?: Array<
+    | "Dre"
+    | "OpScan"
+    | "PcLaptopBased"
+    | "TabletBased"
+    | "CustomHardwareBased"
+    | "Other"
+  >;
+
+  @ApiProperty({
+    required: true,
     enum: EnumCertificationSystemType,
   })
   @IsEnum(EnumCertificationSystemType)
   @Field(() => EnumCertificationSystemType)
-  systemType!:
-    | "Dre"
-    | "OpScan"
-    | "DreOpscan"
-    | "PcLaptopBased"
-    | "TabletBased"
-    | "CustomHardwareBased"
-    | "Other";
+  systemType!: "Vs" | "Epb";
 
   @ApiProperty({
     required: true,

@@ -169,14 +169,7 @@ class CertificationWhereInput {
   @Field(() => EnumCertificationSystemType, {
     nullable: true,
   })
-  systemType?:
-    | "Dre"
-    | "OpScan"
-    | "DreOpscan"
-    | "PcLaptopBased"
-    | "TabletBased"
-    | "CustomHardwareBased"
-    | "Other";
+  systemType?: "Vs" | "Epb";
 
   @ApiProperty({
     required: false,

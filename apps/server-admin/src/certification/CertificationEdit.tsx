@@ -54,17 +54,26 @@ export const CertificationEdit = (props: EditProps): React.ReactElement => {
         <TextInput label="FederalCertNumber" source="federalCertNumber" />
         <TextInput label="ModelNumber" source="modelNumber" />
         <TextInput label="Notes" multiline source="notes" />
+        <SelectArrayInput
+          label="SystemSubType"
+          source="systemSubType"
+          choices={[
+            { label: "DRE", value: "Dre" },
+            { label: "OpScan", value: "OpScan" },
+            { label: "PC-Laptop Based", value: "PcLaptopBased" },
+            { label: "Tablet Based", value: "TabletBased" },
+            { label: "Custom Hardware Based", value: "CustomHardwareBased" },
+            { label: "Other", value: "Other" },
+          ]}
+          optionText="label"
+          optionValue="value"
+        />
         <SelectInput
           source="systemType"
           label="SystemType"
           choices={[
-            { label: "DRE", value: "Dre" },
-            { label: "OpScan", value: "OpScan" },
-            { label: "DRE/Opscan", value: "DreOpscan" },
-            { label: "PC/Laptop Based", value: "PcLaptopBased" },
-            { label: "Tablet Based", value: "TabletBased" },
-            { label: "Custom Hardware Based", value: "CustomHardwareBased" },
-            { label: "Other", value: "Other" },
+            { label: "VS", value: "Vs" },
+            { label: "EPB", value: "Epb" },
           ]}
           optionText="label"
           optionValue="value"
