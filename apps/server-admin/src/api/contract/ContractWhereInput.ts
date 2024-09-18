@@ -1,13 +1,13 @@
 import { CertificationWhereUniqueInput } from "../certification/CertificationWhereUniqueInput";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
-import { ExpenseWhereUniqueInput } from "../expense/ExpenseWhereUniqueInput";
+import { ExpenseListRelationFilter } from "../expense/ExpenseListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 export type ContractWhereInput = {
   certification?: CertificationWhereUniqueInput;
   endDate?: DateTimeFilter;
-  expense?: ExpenseWhereUniqueInput;
+  expenses?: ExpenseListRelationFilter;
   id?: StringFilter;
   notes?: StringNullableFilter;
   startDate?: DateTimeFilter;

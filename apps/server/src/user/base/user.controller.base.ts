@@ -26,6 +26,9 @@ import { User } from "./User";
 import { UserFindManyArgs } from "./UserFindManyArgs";
 import { UserWhereUniqueInput } from "./UserWhereUniqueInput";
 import { UserUpdateInput } from "./UserUpdateInput";
+import { CountyFindManyArgs } from "../../county/base/CountyFindManyArgs";
+import { County } from "../../county/base/County";
+import { CountyWhereUniqueInput } from "../../county/base/CountyWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -47,22 +50,8 @@ export class UserControllerBase {
   })
   async createUser(@common.Body() data: UserCreateInput): Promise<User> {
     return await this.service.createUser({
-      data: {
-        ...data,
-
-        county: data.county
-          ? {
-              connect: data.county,
-            }
-          : undefined,
-      },
+      data: data,
       select: {
-        county: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         email: true,
         firstName: true,
@@ -98,12 +87,6 @@ export class UserControllerBase {
     return this.service.users({
       ...args,
       select: {
-        county: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         email: true,
         firstName: true,
@@ -140,12 +123,6 @@ export class UserControllerBase {
     const result = await this.service.user({
       where: params,
       select: {
-        county: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         email: true,
         firstName: true,
@@ -189,22 +166,8 @@ export class UserControllerBase {
     try {
       return await this.service.updateUser({
         where: params,
-        data: {
-          ...data,
-
-          county: data.county
-            ? {
-                connect: data.county,
-              }
-            : undefined,
-        },
+        data: data,
         select: {
-          county: {
-            select: {
-              id: true,
-            },
-          },
-
           createdAt: true,
           email: true,
           firstName: true,
@@ -249,12 +212,6 @@ export class UserControllerBase {
       return await this.service.deleteUser({
         where: params,
         select: {
-          county: {
-            select: {
-              id: true,
-            },
-          },
-
           createdAt: true,
           email: true,
           firstName: true,
@@ -279,5 +236,101 @@ export class UserControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/counties")
+  @ApiNestedQuery(CountyFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "County",
+    action: "read",
+    possession: "any",
+  })
+  async findCounties(
+    @common.Req() request: Request,
+    @common.Param() params: UserWhereUniqueInput
+  ): Promise<County[]> {
+    const query = plainToClass(CountyFindManyArgs, request.query);
+    const results = await this.service.findCounties(params.id, {
+      ...query,
+      select: {
+        createdAt: true,
+        id: true,
+        name: true,
+        updatedAt: true,
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/counties")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async connectCounties(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: CountyWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      counties: {
+        connect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/counties")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async updateCounties(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: CountyWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      counties: {
+        set: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/counties")
+  @nestAccessControl.UseRoles({
+    resource: "User",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectCounties(
+    @common.Param() params: UserWhereUniqueInput,
+    @common.Body() body: CountyWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      counties: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateUser({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

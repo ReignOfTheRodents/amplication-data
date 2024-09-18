@@ -5,7 +5,7 @@ export type Contract = {
   certification?: Certification | null;
   createdAt: Date;
   endDate: Date;
-  expense?: Expense | null;
+  expenses?: Array<Expense>;
   id: string;
   notes: string | null;
   startDate: Date;

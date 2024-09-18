@@ -1,10 +1,10 @@
 import { CertificationWhereUniqueInput } from "../certification/CertificationWhereUniqueInput";
-import { ExpenseWhereUniqueInput } from "../expense/ExpenseWhereUniqueInput";
+import { ExpenseCreateNestedManyWithoutContractsInput } from "./ExpenseCreateNestedManyWithoutContractsInput";
 
 export type ContractCreateInput = {
   certification?: CertificationWhereUniqueInput | null;
   endDate: Date;
-  expense?: ExpenseWhereUniqueInput | null;
+  expenses?: ExpenseCreateNestedManyWithoutContractsInput;
   notes?: string | null;
   startDate: Date;
   typeField: "Purchase" | "Lease" | "Service" | "Other";

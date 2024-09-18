@@ -14,8 +14,8 @@ import { PrismaService } from "../../prisma/prisma.service";
 import {
   Prisma,
   Contract as PrismaContract,
-  Certification as PrismaCertification,
   Expense as PrismaExpense,
+  Certification as PrismaCertification,
 } from "@prisma/client";
 
 export class ContractServiceBase {
@@ -51,6 +51,17 @@ export class ContractServiceBase {
     return this.prisma.contract.delete(args);
   }
 
+  async findExpenses(
+    parentId: string,
+    args: Prisma.ExpenseFindManyArgs
+  ): Promise<PrismaExpense[]> {
+    return this.prisma.contract
+      .findUniqueOrThrow({
+        where: { id: parentId },
+      })
+      .expenses(args);
+  }
+
   async getCertification(
     parentId: string
   ): Promise<PrismaCertification | null> {
@@ -59,13 +70,5 @@ export class ContractServiceBase {
         where: { id: parentId },
       })
       .certification();
-  }
-
-  async getExpense(parentId: string): Promise<PrismaExpense | null> {
-    return this.prisma.contract
-      .findUnique({
-        where: { id: parentId },
-      })
-      .expense();
   }
 }

@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CountyWhereUniqueInput } from "../../county/base/CountyWhereUniqueInput";
+import { CountyCreateNestedManyWithoutUsersInput } from "./CountyCreateNestedManyWithoutUsersInput";
 import {
   ValidateNested,
   IsOptional,
@@ -28,15 +28,15 @@ import { InputJsonValue } from "../../types";
 class UserCreateInput {
   @ApiProperty({
     required: false,
-    type: () => CountyWhereUniqueInput,
+    type: () => CountyCreateNestedManyWithoutUsersInput,
   })
   @ValidateNested()
-  @Type(() => CountyWhereUniqueInput)
+  @Type(() => CountyCreateNestedManyWithoutUsersInput)
   @IsOptional()
-  @Field(() => CountyWhereUniqueInput, {
+  @Field(() => CountyCreateNestedManyWithoutUsersInput, {
     nullable: true,
   })
-  county?: CountyWhereUniqueInput | null;
+  counties?: CountyCreateNestedManyWithoutUsersInput;
 
   @ApiProperty({
     required: true,

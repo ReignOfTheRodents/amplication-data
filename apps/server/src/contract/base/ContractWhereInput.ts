@@ -15,7 +15,7 @@ import { CertificationWhereUniqueInput } from "../../certification/base/Certific
 import { ValidateNested, IsOptional, IsEnum } from "class-validator";
 import { Type } from "class-transformer";
 import { DateTimeFilter } from "../../util/DateTimeFilter";
-import { ExpenseWhereUniqueInput } from "../../expense/base/ExpenseWhereUniqueInput";
+import { ExpenseListRelationFilter } from "../../expense/base/ExpenseListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { EnumContractTypeField } from "./EnumContractTypeField";
@@ -47,15 +47,15 @@ class ContractWhereInput {
 
   @ApiProperty({
     required: false,
-    type: () => ExpenseWhereUniqueInput,
+    type: () => ExpenseListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => ExpenseWhereUniqueInput)
+  @Type(() => ExpenseListRelationFilter)
   @IsOptional()
-  @Field(() => ExpenseWhereUniqueInput, {
+  @Field(() => ExpenseListRelationFilter, {
     nullable: true,
   })
-  expense?: ExpenseWhereUniqueInput;
+  expenses?: ExpenseListRelationFilter;
 
   @ApiProperty({
     required: false,

@@ -28,12 +28,12 @@ import { JsonValue } from "type-fest";
 class User {
   @ApiProperty({
     required: false,
-    type: () => County,
+    type: () => [County],
   })
   @ValidateNested()
   @Type(() => County)
   @IsOptional()
-  county?: County | null;
+  counties?: Array<County>;
 
   @ApiProperty({
     required: true,

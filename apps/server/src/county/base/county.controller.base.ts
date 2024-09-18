@@ -326,12 +326,6 @@ export class CountyControllerBase {
     const results = await this.service.findUsers(params.id, {
       ...query,
       select: {
-        county: {
-          select: {
-            id: true,
-          },
-        },
-
         createdAt: true,
         email: true,
         firstName: true,

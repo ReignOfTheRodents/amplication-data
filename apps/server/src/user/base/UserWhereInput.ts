@@ -11,7 +11,7 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { CountyWhereUniqueInput } from "../../county/base/CountyWhereUniqueInput";
+import { CountyListRelationFilter } from "../../county/base/CountyListRelationFilter";
 import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 import { StringFilter } from "../../util/StringFilter";
@@ -22,15 +22,15 @@ import { StringNullableFilter } from "../../util/StringNullableFilter";
 class UserWhereInput {
   @ApiProperty({
     required: false,
-    type: () => CountyWhereUniqueInput,
+    type: () => CountyListRelationFilter,
   })
   @ValidateNested()
-  @Type(() => CountyWhereUniqueInput)
+  @Type(() => CountyListRelationFilter)
   @IsOptional()
-  @Field(() => CountyWhereUniqueInput, {
+  @Field(() => CountyListRelationFilter, {
     nullable: true,
   })
-  county?: CountyWhereUniqueInput;
+  counties?: CountyListRelationFilter;
 
   @ApiProperty({
     required: false,

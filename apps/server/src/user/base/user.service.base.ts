@@ -64,11 +64,14 @@ export class UserServiceBase {
     return this.prisma.user.delete(args);
   }
 
-  async getCounty(parentId: string): Promise<PrismaCounty | null> {
+  async findCounties(
+    parentId: string,
+    args: Prisma.CountyFindManyArgs
+  ): Promise<PrismaCounty[]> {
     return this.prisma.user
-      .findUnique({
+      .findUniqueOrThrow({
         where: { id: parentId },
       })
-      .county();
+      .counties(args);
   }
 }

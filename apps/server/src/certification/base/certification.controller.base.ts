@@ -419,13 +419,6 @@ export class CertificationControllerBase {
 
         createdAt: true,
         endDate: true,
-
-        expense: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         notes: true,
         startDate: true,

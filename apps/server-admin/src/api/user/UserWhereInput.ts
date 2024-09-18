@@ -1,10 +1,10 @@
-import { CountyWhereUniqueInput } from "../county/CountyWhereUniqueInput";
+import { CountyListRelationFilter } from "../county/CountyListRelationFilter";
 import { StringFilter } from "../../util/StringFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 export type UserWhereInput = {
-  county?: CountyWhereUniqueInput;
+  counties?: CountyListRelationFilter;
   email?: StringFilter;
   firstName?: StringFilter;
   id?: StringFilter;

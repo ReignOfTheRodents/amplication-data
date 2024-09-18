@@ -2,7 +2,7 @@ import { County } from "../county/County";
 import { JsonValue } from "type-fest";
 
 export type User = {
-  county?: County | null;
+  counties?: Array<County>;
   createdAt: Date;
   email: string;
   firstName: string;

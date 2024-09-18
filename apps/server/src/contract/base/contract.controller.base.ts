@@ -26,6 +26,9 @@ import { Contract } from "./Contract";
 import { ContractFindManyArgs } from "./ContractFindManyArgs";
 import { ContractWhereUniqueInput } from "./ContractWhereUniqueInput";
 import { ContractUpdateInput } from "./ContractUpdateInput";
+import { ExpenseFindManyArgs } from "../../expense/base/ExpenseFindManyArgs";
+import { Expense } from "../../expense/base/Expense";
+import { ExpenseWhereUniqueInput } from "../../expense/base/ExpenseWhereUniqueInput";
 
 @swagger.ApiBearerAuth()
 @common.UseGuards(defaultAuthGuard.DefaultAuthGuard, nestAccessControl.ACGuard)
@@ -57,12 +60,6 @@ export class ContractControllerBase {
               connect: data.certification,
             }
           : undefined,
-
-        expense: data.expense
-          ? {
-              connect: data.expense,
-            }
-          : undefined,
       },
       select: {
         certification: {
@@ -73,13 +70,6 @@ export class ContractControllerBase {
 
         createdAt: true,
         endDate: true,
-
-        expense: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         notes: true,
         startDate: true,
@@ -114,13 +104,6 @@ export class ContractControllerBase {
 
         createdAt: true,
         endDate: true,
-
-        expense: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         notes: true,
         startDate: true,
@@ -156,13 +139,6 @@ export class ContractControllerBase {
 
         createdAt: true,
         endDate: true,
-
-        expense: {
-          select: {
-            id: true,
-          },
-        },
-
         id: true,
         notes: true,
         startDate: true,
@@ -205,12 +181,6 @@ export class ContractControllerBase {
                 connect: data.certification,
               }
             : undefined,
-
-          expense: data.expense
-            ? {
-                connect: data.expense,
-              }
-            : undefined,
         },
         select: {
           certification: {
@@ -221,13 +191,6 @@ export class ContractControllerBase {
 
           createdAt: true,
           endDate: true,
-
-          expense: {
-            select: {
-              id: true,
-            },
-          },
-
           id: true,
           notes: true,
           startDate: true,
@@ -271,13 +234,6 @@ export class ContractControllerBase {
 
           createdAt: true,
           endDate: true,
-
-          expense: {
-            select: {
-              id: true,
-            },
-          },
-
           id: true,
           notes: true,
           startDate: true,
@@ -293,5 +249,124 @@ export class ContractControllerBase {
       }
       throw error;
     }
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.Get("/:id/expenses")
+  @ApiNestedQuery(ExpenseFindManyArgs)
+  @nestAccessControl.UseRoles({
+    resource: "Expense",
+    action: "read",
+    possession: "any",
+  })
+  async findExpenses(
+    @common.Req() request: Request,
+    @common.Param() params: ContractWhereUniqueInput
+  ): Promise<Expense[]> {
+    const query = plainToClass(ExpenseFindManyArgs, request.query);
+    const results = await this.service.findExpenses(params.id, {
+      ...query,
+      select: {
+        amount: true,
+
+        contract: {
+          select: {
+            id: true,
+          },
+        },
+
+        county: {
+          select: {
+            id: true,
+          },
+        },
+
+        createdAt: true,
+        fund: true,
+        id: true,
+        name: true,
+        notes: true,
+        owner: true,
+        updatedAt: true,
+
+        vendor: {
+          select: {
+            id: true,
+          },
+        },
+      },
+    });
+    if (results === null) {
+      throw new errors.NotFoundException(
+        `No resource was found for ${JSON.stringify(params)}`
+      );
+    }
+    return results;
+  }
+
+  @common.Post("/:id/expenses")
+  @nestAccessControl.UseRoles({
+    resource: "Contract",
+    action: "update",
+    possession: "any",
+  })
+  async connectExpenses(
+    @common.Param() params: ContractWhereUniqueInput,
+    @common.Body() body: ExpenseWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      expenses: {
+        connect: body,
+      },
+    };
+    await this.service.updateContract({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Patch("/:id/expenses")
+  @nestAccessControl.UseRoles({
+    resource: "Contract",
+    action: "update",
+    possession: "any",
+  })
+  async updateExpenses(
+    @common.Param() params: ContractWhereUniqueInput,
+    @common.Body() body: ExpenseWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      expenses: {
+        set: body,
+      },
+    };
+    await this.service.updateContract({
+      where: params,
+      data,
+      select: { id: true },
+    });
+  }
+
+  @common.Delete("/:id/expenses")
+  @nestAccessControl.UseRoles({
+    resource: "Contract",
+    action: "update",
+    possession: "any",
+  })
+  async disconnectExpenses(
+    @common.Param() params: ContractWhereUniqueInput,
+    @common.Body() body: ExpenseWhereUniqueInput[]
+  ): Promise<void> {
+    const data = {
+      expenses: {
+        disconnect: body,
+      },
+    };
+    await this.service.updateContract({
+      where: params,
+      data,
+      select: { id: true },
+    });
   }
 }

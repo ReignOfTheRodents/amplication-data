@@ -7,6 +7,8 @@ import {
   ReferenceInput,
   SelectInput,
   DateTimeInput,
+  ReferenceArrayInput,
+  SelectArrayInput,
   TextInput,
 } from "react-admin";
 
@@ -25,9 +27,13 @@ export const ContractCreate = (props: CreateProps): React.ReactElement => {
           <SelectInput optionText={CertificationTitle} />
         </ReferenceInput>
         <DateTimeInput label="EndDate" source="endDate" />
-        <ReferenceInput source="expense.id" reference="Expense" label="Expense">
-          <SelectInput optionText={ExpenseTitle} />
-        </ReferenceInput>
+        <ReferenceArrayInput source="expenses" reference="Expense">
+          <SelectArrayInput
+            optionText={ExpenseTitle}
+            parse={(value: any) => value && value.map((v: any) => ({ id: v }))}
+            format={(value: any) => value && value.map((v: any) => v.id)}
+          />
+        </ReferenceArrayInput>
         <TextInput label="Notes" source="notes" />
         <DateTimeInput label="StartDate" source="startDate" />
         <SelectInput

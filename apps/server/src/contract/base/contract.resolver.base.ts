@@ -26,8 +26,9 @@ import { ContractFindUniqueArgs } from "./ContractFindUniqueArgs";
 import { CreateContractArgs } from "./CreateContractArgs";
 import { UpdateContractArgs } from "./UpdateContractArgs";
 import { DeleteContractArgs } from "./DeleteContractArgs";
-import { Certification } from "../../certification/base/Certification";
+import { ExpenseFindManyArgs } from "../../expense/base/ExpenseFindManyArgs";
 import { Expense } from "../../expense/base/Expense";
+import { Certification } from "../../certification/base/Certification";
 import { ContractService } from "../contract.service";
 @common.UseGuards(GqlDefaultAuthGuard, gqlACGuard.GqlACGuard)
 @graphql.Resolver(() => Contract)
@@ -102,12 +103,6 @@ export class ContractResolverBase {
               connect: args.data.certification,
             }
           : undefined,
-
-        expense: args.data.expense
-          ? {
-              connect: args.data.expense,
-            }
-          : undefined,
       },
     });
   }
@@ -131,12 +126,6 @@ export class ContractResolverBase {
           certification: args.data.certification
             ? {
                 connect: args.data.certification,
-              }
-            : undefined,
-
-          expense: args.data.expense
-            ? {
-                connect: args.data.expense,
               }
             : undefined,
         },
@@ -173,6 +162,26 @@ export class ContractResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
+  @graphql.ResolveField(() => [Expense], { name: "expenses" })
+  @nestAccessControl.UseRoles({
+    resource: "Expense",
+    action: "read",
+    possession: "any",
+  })
+  async findExpenses(
+    @graphql.Parent() parent: Contract,
+    @graphql.Args() args: ExpenseFindManyArgs
+  ): Promise<Expense[]> {
+    const results = await this.service.findExpenses(parent.id, args);
+
+    if (!results) {
+      return [];
+    }
+
+    return results;
+  }
+
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => Certification, {
     nullable: true,
     name: "certification",
@@ -186,27 +195,6 @@ export class ContractResolverBase {
     @graphql.Parent() parent: Contract
   ): Promise<Certification | null> {
     const result = await this.service.getCertification(parent.id);
-
-    if (!result) {
-      return null;
-    }
-    return result;
-  }
-
-  @common.UseInterceptors(AclFilterResponseInterceptor)
-  @graphql.ResolveField(() => Expense, {
-    nullable: true,
-    name: "expense",
-  })
-  @nestAccessControl.UseRoles({
-    resource: "Expense",
-    action: "read",
-    possession: "any",
-  })
-  async getExpense(
-    @graphql.Parent() parent: Contract
-  ): Promise<Expense | null> {
-    const result = await this.service.getExpense(parent.id);
 
     if (!result) {
       return null;

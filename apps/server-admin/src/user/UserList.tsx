@@ -1,22 +1,11 @@
 import * as React from "react";
-import {
-  List,
-  Datagrid,
-  ListProps,
-  ReferenceField,
-  TextField,
-  DateField,
-} from "react-admin";
+import { List, Datagrid, ListProps, DateField, TextField } from "react-admin";
 import Pagination from "../Components/Pagination";
-import { COUNTY_TITLE_FIELD } from "../county/CountyTitle";
 
 export const UserList = (props: ListProps): React.ReactElement => {
   return (
     <List {...props} title={"Users"} perPage={50} pagination={<Pagination />}>
       <Datagrid rowClick="show" bulkActionButtons={false}>
-        <ReferenceField label="County" source="county.id" reference="County">
-          <TextField source={COUNTY_TITLE_FIELD} />
-        </ReferenceField>
         <DateField source="createdAt" label="Created At" />
         <TextField label="Email" source="email" />
         <TextField label="First Name" source="firstName" />
